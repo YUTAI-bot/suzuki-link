@@ -140,6 +140,48 @@
     opacity:.7;
   }
 
+  /* ── LINEのQR（画像で保存したい人向け） ── */
+  .qrbox{
+    margin-top:-4px;
+    border:1px solid var(--line-c);
+    border-radius:3px;
+    background:var(--paper-2);
+  }
+  .qrbox summary{
+    list-style:none;cursor:pointer;
+    padding:12px 20px;
+    font-size:12px;letter-spacing:.06em;
+    color:var(--sumi-soft);
+    display:flex;align-items:center;justify-content:center;gap:7px;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .qrbox summary::-webkit-details-marker{display:none}
+  .qrbox summary::after{content:"＋";font-size:11px;color:var(--gold)}
+  .qrbox[open] summary::after{content:"−"}
+  .qrbody{
+    padding:4px 20px 22px;
+    text-align:center;
+    border-top:1px solid var(--line-c);
+  }
+  .qrimg{
+    width:200px;height:200px;max-width:100%;
+    margin:18px auto 0;display:block;
+    border:1px solid var(--line-c);
+  }
+  .qrnote{
+    margin-top:14px;
+    font-size:11.5px;line-height:1.85;
+    color:var(--sumi-soft);
+    text-align:left;
+  }
+  .qrnote b{font-weight:500;color:var(--sumi)}
+  .qrdl{
+    display:inline-block;margin-top:14px;
+    font-size:11.5px;letter-spacing:.06em;
+    color:var(--midori-2);
+    text-underline-offset:3px;
+  }
+
   @media (prefers-reduced-motion:reduce){
     .btn{transition:none}
     .btn:hover{transform:none}
@@ -190,6 +232,24 @@
       </span>
       <span class="arw" aria-hidden="true">›</span>
     </a>
+
+    <details class="qrbox">
+      <summary>QRコードを表示（パソコンの方・保存したい方）</summary>
+      <div class="qrbody">
+        <img class="qrimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAGkAQMAAABEgsN2AAAABlBMVEUfHBr////N7eLrAAABuUlEQVR42u2cQY7DIAxF0VyA+9+SG2SUAvY3yWwq2ZrFQ10kKW9TPRnbkLbrizEaFBQUFBQUVBY1mo37uq/n932/1kObcM//ad8MKKg/R3B46tfj9WjHBDyEyvJwrGBoHt6R8COhqWgT8BCqwMO5Iq+HFhvxEKrSw+2eZoZ4CFWdH24V51fkh1CVHmq9/PqhXoZK9zCOWaG4li/dHn5DqBQP/b57ZuhZ4nWFFRwPofLqlF0aTxutag6xEQ+h8uOhVygPM/0WD6Ey46Ht8fmOXhdFd+qIh1CJ9bIoZ/1DW6N9b4V6GSq5b6MR7+V4gzQV8RAqq28Tk0Dv2FjV3OnbQOXnh3LK6+wfDl+7yQ+hKuqU8RIGWwuNRDyESq1Tgm9WocQWIvkhVHo8PM45dEkLtUjBQ6hkD/UE7GrgRDPZT4GqqFP0qGE88ODf4iFUXt9G35xSFVuol/EQKrdO0YinXUR5R4D+IVTBunxsND9PfBEPoQrqlBbfQ1l1yjNa4iFUjYdSL+sF6zJUpYfHnrLOZF8Pqi4/3HvNz38gwUOoonpZDr4eWyqiK78hVIKH/OsUFBQUFBTUv6B+AcqyXXtfG04nAAAAAElFTkSuQmCC"
+             alt="LINE友だち追加のQRコード" width="200" height="200">
+        <p class="qrnote">
+          スマートフォンの方は、上の<b>「LINE で友だち追加」</b>を押すだけで
+          LINEが開きます。<br>
+          パソコンでご覧の方は、このQRコードをスマートフォンのLINEで
+          読み取ってください。<br>
+          画像を保存して読み込む場合は、LINEの<b>友だち追加 › QRコード</b>から
+          「画像を読み込む」を選びます。
+        </p>
+        <a class="qrdl" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAGkAQMAAABEgsN2AAAABlBMVEUfHBr////N7eLrAAABuUlEQVR42u2cQY7DIAxF0VyA+9+SG2SUAvY3yWwq2ZrFQ10kKW9TPRnbkLbrizEaFBQUFBQUVBY1mo37uq/n932/1kObcM//ad8MKKg/R3B46tfj9WjHBDyEyvJwrGBoHt6R8COhqWgT8BCqwMO5Iq+HFhvxEKrSw+2eZoZ4CFWdH24V51fkh1CVHmq9/PqhXoZK9zCOWaG4li/dHn5DqBQP/b57ZuhZ4nWFFRwPofLqlF0aTxutag6xEQ+h8uOhVygPM/0WD6Ey46Ht8fmOXhdFd+qIh1CJ9bIoZ/1DW6N9b4V6GSq5b6MR7+V4gzQV8RAqq28Tk0Dv2FjV3OnbQOXnh3LK6+wfDl+7yQ+hKuqU8RIGWwuNRDyESq1Tgm9WocQWIvkhVHo8PM45dEkLtUjBQ6hkD/UE7GrgRDPZT4GqqFP0qGE88ODf4iFUXt9G35xSFVuol/EQKrdO0YinXUR5R4D+IVTBunxsND9PfBEPoQrqlBbfQ1l1yjNa4iFUjYdSL+sF6zJUpYfHnrLOZF8Pqi4/3HvNz38gwUOoonpZDr4eWyqiK78hVIKH/OsUFBQUFBTUv6B+AcqyXXtfG04nAAAAAElFTkSuQmCC"
+           download="suzuki-line-qr.png">画像をダウンロード</a>
+      </div>
+    </details>
 
     <a class="btn" href="tel:08016107648">
       <span class="ico" aria-hidden="true">
