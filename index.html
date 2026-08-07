@@ -9,270 +9,299 @@
 <meta property="og:title" content="鈴木 悠太 | 整形外科医">
 <meta property="og:description" content="ご連絡先・関連リンク">
 <meta property="og:type" content="profile">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231b3a2f'/><text x='16' y='23' font-size='20' text-anchor='middle' fill='%23f7f5f0' font-family='serif'>鈴</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23211d1a'/><circle cx='16' cy='16' r='6' fill='%23c0452f'/></svg>">
 <style>
   :root{
-    --paper:#f7f5f0;      /* 生成り */
-    --paper-2:#fffefb;
-    --sumi:#1f1c1a;       /* 墨 */
-    --sumi-soft:#5a534d;
-    --midori:#1b3a2f;     /* 深緑 */
-    --midori-2:#2f5a49;
-    --line-c:#dcd6ca;
-    --gold:#a08a55;
+    --paper:#f3efe6;      /* 生成りクラフト */
+    --paper-2:#faf7ef;
+    --sumi:#211d1a;       /* 墨 */
+    --sumi-soft:#6f6557;
+    --aka:#c0452f;        /* 朱 */
+    --line-c:#d8d0c0;
+    --line-soft:#c9bfae;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
   body{
     font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP",serif;
-    background:var(--paper);
+    background:var(--sumi);
     color:var(--sumi);
     line-height:1.8;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:clamp(28px,7vw,56px) 20px 40px;
-    /* 和紙のような極薄テクスチャ */
-    background-image:
-      radial-gradient(circle at 20% 10%, rgba(160,138,85,.05), transparent 55%),
-      radial-gradient(circle at 85% 80%, rgba(27,58,47,.045), transparent 50%);
   }
-  .wrap{width:100%;max-width:420px}
+  /* 中央の紙面（帯込み） */
+  .frame{
+    position:relative;
+    max-width:480px;
+    margin:0 auto;
+    min-height:100vh;
+    min-height:100svh;
+    background:var(--paper);
+    /* 紙の極薄テクスチャ */
+    background-image:
+      radial-gradient(circle at 80% 12%, rgba(192,69,47,.04), transparent 45%),
+      radial-gradient(circle at 15% 85%, rgba(33,29,26,.05), transparent 50%);
+  }
+  /* ── 左の墨帯（縦書き） ── */
+  .band{
+    position:absolute;
+    top:0;left:0;bottom:0;
+    width:60px;
+    background:var(--sumi);
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding-top:42px;
+  }
+  .tate{
+    writing-mode:vertical-rl;
+    color:var(--paper);
+    font-size:19px;
+    letter-spacing:.4em;
+    font-weight:500;
+    user-select:none;
+  }
+  .tate .aka{color:var(--aka)}
+
+  .inner{
+    margin-left:60px;
+    padding:clamp(44px,9vw,60px) 24px 40px;
+  }
 
   /* ── 名乗り ── */
-  .head{text-align:center;padding-bottom:28px}
-  .name{
-    font-size:clamp(28px,8vw,34px);
-    letter-spacing:.22em;
-    text-indent:.22em;
-    font-weight:500;
-    line-height:1.4;
-  }
   .name-en{
-    margin-top:10px;
     font-family:"Optima","Palatino Linotype","Georgia",serif;
-    font-size:11px;
-    letter-spacing:.3em;
-    text-indent:.3em;
+    font-size:10px;
+    letter-spacing:.32em;
     text-transform:uppercase;
     color:var(--sumi-soft);
   }
-  .rule{
-    width:44px;height:1px;margin:20px auto;
-    background:var(--gold);opacity:.6;
+  .name{
+    font-size:clamp(29px,8vw,34px);
+    letter-spacing:.14em;
+    font-weight:600;
+    line-height:1.35;
+    margin-top:6px;
   }
   .role{
-    font-size:15px;
-    letter-spacing:.14em;
-    text-indent:.14em;
-    color:var(--sumi);
+    font-size:14px;
+    letter-spacing:.12em;
+    margin-top:22px;
+    padding-left:14px;
+    border-left:3px solid var(--aka);
   }
   .affil{
-    margin-top:12px;
-    font-size:13px;
-    letter-spacing:.08em;
+    margin-top:10px;
+    font-size:12px;
+    letter-spacing:.06em;
     color:var(--sumi-soft);
     line-height:2;
   }
 
   /* ── リンク ── */
-  .links{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+  .links{margin-top:32px;display:flex;flex-direction:column}
   .btn{
     display:flex;align-items:center;gap:14px;
-    padding:17px 20px;
-    background:var(--paper-2);
-    border:1px solid var(--line-c);
-    border-radius:3px;
+    padding:17px 2px;
+    border-bottom:1px solid var(--line-c);
     text-decoration:none;
     color:var(--sumi);
-    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    transition:background .18s ease, padding .18s ease;
     -webkit-tap-highlight-color:transparent;
   }
+  .links > .btn:first-child{border-top:1px solid var(--line-c)}
   .btn:hover,.btn:focus-visible{
-    transform:translateY(-2px);
-    box-shadow:0 6px 18px rgba(31,28,26,.09);
-    border-color:var(--midori-2);
+    background:var(--paper-2);
+    padding-left:8px;
     outline:none;
   }
-  .btn:active{transform:translateY(0)}
   .ico{
-    flex:0 0 34px;height:34px;
+    flex:0 0 26px;
     display:flex;align-items:center;justify-content:center;
-    color:var(--midori);
+    color:var(--aka);
   }
-  .ico svg{width:21px;height:21px;display:block}
+  .ico svg{width:20px;height:20px;display:block}
   .txt{flex:1;min-width:0}
   .txt b{
     display:block;
-    font-size:15px;font-weight:500;
+    font-size:14.5px;font-weight:600;
     letter-spacing:.08em;
     line-height:1.5;
   }
   .txt span{
     display:block;
     margin-top:3px;
-    font-size:11px;
-    letter-spacing:.06em;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    font-size:10.5px;
+    letter-spacing:.05em;
     color:var(--sumi-soft);
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   }
-  .arw{flex:0 0 auto;color:var(--line-c);font-size:15px;line-height:1}
-  .btn:hover .arw{color:var(--midori-2)}
+  .arw{flex:0 0 auto;color:var(--line-soft);font-size:15px;line-height:1}
+  .btn:hover .arw{color:var(--aka)}
 
-  /* LINEだけ少し色を持たせる */
+  /* LINEだけブランド色 */
   .btn.line .ico{color:#06C755}
 
   .foot{
-    margin-top:34px;
-    text-align:center;
-    font-size:10px;
-    letter-spacing:.18em;
-    color:var(--sumi-soft);
-    opacity:.7;
+    margin-top:40px;
+    font-size:9px;
+    letter-spacing:.3em;
+    color:#a89c88;
   }
 
   /* ── LINEのQR（画像で保存したい人向け） ── */
   .qrbox{
-    margin-top:-4px;
-    border:1px solid var(--line-c);
-    border-radius:3px;
-    background:var(--paper-2);
+    border-bottom:1px solid var(--line-c);
+    background:transparent;
   }
   .qrbox summary{
     list-style:none;cursor:pointer;
-    padding:12px 20px;
-    font-size:12px;letter-spacing:.06em;
+    padding:13px 2px;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    font-size:11.5px;letter-spacing:.05em;
     color:var(--sumi-soft);
-    display:flex;align-items:center;justify-content:center;gap:7px;
+    display:flex;align-items:center;gap:8px;
     -webkit-tap-highlight-color:transparent;
   }
   .qrbox summary::-webkit-details-marker{display:none}
-  .qrbox summary::after{content:"＋";font-size:11px;color:var(--gold)}
+  .qrbox summary::before{content:"";width:26px}
+  .qrbox summary::after{content:"＋";font-size:11px;color:var(--aka);margin-left:auto}
   .qrbox[open] summary::after{content:"−"}
   .qrbody{
-    padding:4px 20px 22px;
+    padding:4px 2px 22px;
     text-align:center;
-    border-top:1px solid var(--line-c);
   }
   .qrimg{
     width:200px;height:200px;max-width:100%;
-    margin:18px auto 0;display:block;
+    margin:14px auto 0;display:block;
     border:1px solid var(--line-c);
+    background:#fff;
   }
   .qrnote{
     margin-top:14px;
-    font-size:11.5px;line-height:1.85;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    font-size:11px;line-height:1.9;
     color:var(--sumi-soft);
     text-align:left;
   }
-  .qrnote b{font-weight:500;color:var(--sumi)}
+  .qrnote b{font-weight:600;color:var(--sumi)}
   .qrdl{
     display:inline-block;margin-top:14px;
-    font-size:11.5px;letter-spacing:.06em;
-    color:var(--midori-2);
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    font-size:11.5px;letter-spacing:.05em;
+    color:var(--aka);
     text-underline-offset:3px;
   }
 
   @media (prefers-reduced-motion:reduce){
     .btn{transition:none}
-    .btn:hover{transform:none}
+  }
+  /* 狭い端末では帯を少し細く */
+  @media (max-width:360px){
+    .band{width:52px}
+    .inner{margin-left:52px;padding-left:18px;padding-right:18px}
+    .tate{font-size:17px}
   }
 </style>
 </head>
 <body>
-<main class="wrap">
+<div class="frame">
+  <div class="band" aria-hidden="true">
+    <div class="tate">整形外科医<span class="aka">・</span>鈴木悠太</div>
+  </div>
 
-  <header class="head">
-    <h1 class="name">鈴木　悠太</h1>
-    <p class="name-en">Yuta Suzuki</p>
-    <div class="rule" aria-hidden="true"></div>
-    <p class="role">整形外科医</p>
-    <p class="affil">
-      名古屋市立大学　整形外科<br>
-      愛成会　すずき歯科医院
-    </p>
-  </header>
+  <main class="inner">
 
-  <nav class="links" aria-label="連絡先とリンク">
+    <header>
+      <p class="name-en">Yuta Suzuki</p>
+      <h1 class="name">鈴木　悠太</h1>
+      <p class="role">整形外科医</p>
+      <p class="affil">
+        名古屋市立大学　整形外科<br>
+        愛成会　すずき歯科医院
+      </p>
+    </header>
 
-    <!-- ▼▼ 歯科HPのURL：ドメイン変更時はこの href="" の中だけ書き換える ▼▼ -->
-    <a class="btn" href="http://xs694264.xsrv.jp/" id="link-hp" target="_blank" rel="noopener">
-      <span class="ico" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 21h18M5 21V8l7-5 7 5v13M9.5 21v-5h5v5"/>
-        </svg>
-      </span>
-      <span class="txt">
-        <b>すずき歯科医院</b>
-        <span>公式ウェブサイト</span>
-      </span>
-      <span class="arw" aria-hidden="true">›</span>
-    </a>
+    <nav class="links" aria-label="連絡先とリンク">
 
-    <!-- ▼▼ LINE友だち追加のURL：変更時はこの href="" の中だけ書き換える ▼▼ -->
-    <a class="btn line" href="https://line.me/ti/p/xaEL_3vhmR" id="link-line" target="_blank" rel="noopener">
-      <span class="ico" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 11.3c0-4.2-4-7.6-9-7.6s-9 3.4-9 7.6c0 3.8 3.2 6.9 7.5 7.5.3.1.7.2.8.5.1.3.1.6 0 .9l-.1.8c0 .3-.2 1 .9.6 1.1-.5 6-3.5 8.2-6 1.1-1.2 1.7-2.6 1.7-4.3z"/>
-        </svg>
-      </span>
-      <span class="txt">
-        <b>LINE で友だち追加</b>
-        <span>ご相談・ご連絡はこちらから</span>
-      </span>
-      <span class="arw" aria-hidden="true">›</span>
-    </a>
+      <!-- ▼▼ 歯科HPのURL：ドメイン変更時はこの href="" の中だけ書き換える ▼▼ -->
+      <a class="btn" href="http://xs694264.xsrv.jp/" id="link-hp" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M5 21V8l7-5 7 5v13M9.5 21v-5h5v5"/>
+          </svg>
+        </span>
+        <span class="txt">
+          <b>すずき歯科医院</b>
+          <span>公式ウェブサイト</span>
+        </span>
+        <span class="arw" aria-hidden="true">›</span>
+      </a>
 
-    <details class="qrbox">
-      <summary>QRコードを表示（パソコンの方・保存したい方）</summary>
-      <div class="qrbody">
-        <img class="qrimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAGkAQMAAABEgsN2AAAABlBMVEUfHBr////N7eLrAAABuUlEQVR42u2cQY7DIAxF0VyA+9+SG2SUAvY3yWwq2ZrFQ10kKW9TPRnbkLbrizEaFBQUFBQUVBY1mo37uq/n932/1kObcM//ad8MKKg/R3B46tfj9WjHBDyEyvJwrGBoHt6R8COhqWgT8BCqwMO5Iq+HFhvxEKrSw+2eZoZ4CFWdH24V51fkh1CVHmq9/PqhXoZK9zCOWaG4li/dHn5DqBQP/b57ZuhZ4nWFFRwPofLqlF0aTxutag6xEQ+h8uOhVygPM/0WD6Ey46Ht8fmOXhdFd+qIh1CJ9bIoZ/1DW6N9b4V6GSq5b6MR7+V4gzQV8RAqq28Tk0Dv2FjV3OnbQOXnh3LK6+wfDl+7yQ+hKuqU8RIGWwuNRDyESq1Tgm9WocQWIvkhVHo8PM45dEkLtUjBQ6hkD/UE7GrgRDPZT4GqqFP0qGE88ODf4iFUXt9G35xSFVuol/EQKrdO0YinXUR5R4D+IVTBunxsND9PfBEPoQrqlBbfQ1l1yjNa4iFUjYdSL+sF6zJUpYfHnrLOZF8Pqi4/3HvNz38gwUOoonpZDr4eWyqiK78hVIKH/OsUFBQUFBTUv6B+AcqyXXtfG04nAAAAAElFTkSuQmCC"
-             alt="LINE友だち追加のQRコード" width="200" height="200">
-        <p class="qrnote">
-          スマートフォンの方は、上の<b>「LINE で友だち追加」</b>を押すだけで
-          LINEが開きます。<br>
-          パソコンでご覧の方は、このQRコードをスマートフォンのLINEで
-          読み取ってください。<br>
-          画像を保存して読み込む場合は、LINEの<b>友だち追加 › QRコード</b>から
-          「画像を読み込む」を選びます。
-        </p>
-        <a class="qrdl" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAGkAQMAAABEgsN2AAAABlBMVEUfHBr////N7eLrAAABuUlEQVR42u2cQY7DIAxF0VyA+9+SG2SUAvY3yWwq2ZrFQ10kKW9TPRnbkLbrizEaFBQUFBQUVBY1mo37uq/n932/1kObcM//ad8MKKg/R3B46tfj9WjHBDyEyvJwrGBoHt6R8COhqWgT8BCqwMO5Iq+HFhvxEKrSw+2eZoZ4CFWdH24V51fkh1CVHmq9/PqhXoZK9zCOWaG4li/dHn5DqBQP/b57ZuhZ4nWFFRwPofLqlF0aTxutag6xEQ+h8uOhVygPM/0WD6Ey46Ht8fmOXhdFd+qIh1CJ9bIoZ/1DW6N9b4V6GSq5b6MR7+V4gzQV8RAqq28Tk0Dv2FjV3OnbQOXnh3LK6+wfDl+7yQ+hKuqU8RIGWwuNRDyESq1Tgm9WocQWIvkhVHo8PM45dEkLtUjBQ6hkD/UE7GrgRDPZT4GqqFP0qGE88ODf4iFUXt9G35xSFVuol/EQKrdO0YinXUR5R4D+IVTBunxsND9PfBEPoQrqlBbfQ1l1yjNa4iFUjYdSL+sF6zJUpYfHnrLOZF8Pqi4/3HvNz38gwUOoonpZDr4eWyqiK78hVIKH/OsUFBQUFBTUv6B+AcqyXXtfG04nAAAAAElFTkSuQmCC"
-           download="suzuki-line-qr.png">画像をダウンロード</a>
-      </div>
-    </details>
+      <!-- ▼▼ LINE友だち追加のURL：変更時はこの href="" の中だけ書き換える ▼▼ -->
+      <a class="btn line" href="https://line.me/ti/p/xaEL_3vhmR" id="link-line" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.3c0-4.2-4-7.6-9-7.6s-9 3.4-9 7.6c0 3.8 3.2 6.9 7.5 7.5.3.1.7.2.8.5.1.3.1.6 0 .9l-.1.8c0 .3-.2 1 .9.6 1.1-.5 6-3.5 8.2-6 1.1-1.2 1.7-2.6 1.7-4.3z"/>
+          </svg>
+        </span>
+        <span class="txt">
+          <b>LINE で友だち追加</b>
+          <span>ご相談・ご連絡はこちらから</span>
+        </span>
+        <span class="arw" aria-hidden="true">›</span>
+      </a>
 
-    <a class="btn" href="tel:08016107648">
-      <span class="ico" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1z"/>
-        </svg>
-      </span>
-      <span class="txt">
-        <b>電話をかける</b>
-        <span>080-1610-7648</span>
-      </span>
-      <span class="arw" aria-hidden="true">›</span>
-    </a>
+      <details class="qrbox">
+        <summary>QRコードを表示（パソコンの方・保存したい方）</summary>
+        <div class="qrbody">
+          <img class="qrimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAGkAQMAAABEgsN2AAAABlBMVEUfHBr////N7eLrAAABuUlEQVR42u2cQY7DIAxF0VyA+9+SG2SUAvY3yWwq2ZrFQ10kKW9TPRnbkLbrizEaFBQUFBQUVBY1mo37uq/n932/1kObcM//ad8MKKg/R3B46tfj9WjHBDyEyvJwrGBoHt6R8COhqWgT8BCqwMO5Iq+HFhvxEKrSw+2eZoZ4CFWdH24V51fkh1CVHmq9/PqhXoZK9zCOWaG4li/dHn5DqBQP/b57ZuhZ4nWFFRwPofLqlF0aTxutag6xEQ+h8uOhVygPM/0WD6Ey46Ht8fmOXhdFd+qIh1CJ9bIoZ/1DW6N9b4V6GSq5b6MR7+V4gzQV8RAqq28Tk0Dv2FjV3OnbQOXnh3LK6+wfDl+7yQ+hKuqU8RIGWwuNRDyESq1Tgm9WocQWIvkhVHo8PM45dEkLtUjBQ6hkD/UE7GrgRDPZT4GqqFP0qGE88ODf4iFUXt9G35xSFVuol/EQKrdO0YinXUR5R4D+IVTBunxsND9PfBEPoQrqlBbfQ1l1yjNa4iFUjYdSL+sF6zJUpYfHnrLOZF8Pqi4/3HvNz38gwUOoonpZDr4eWyqiK78hVIKH/OsUFBQUFBTUv6B+AcqyXXtfG04nAAAAAElFTkSuQmCC"
+               alt="LINE友だち追加のQRコード" width="200" height="200">
+          <p class="qrnote">
+            スマートフォンの方は、上の<b>「LINE で友だち追加」</b>を押すだけで
+            LINEが開きます。<br>
+            パソコンでご覧の方は、このQRコードをスマートフォンのLINEで
+            読み取ってください。<br>
+            画像を保存して読み込む場合は、LINEの<b>友だち追加 › QRコード</b>から
+            「画像を読み込む」を選びます。
+          </p>
+          <a class="qrdl" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAGkAQMAAABEgsN2AAAABlBMVEUfHBr////N7eLrAAABuUlEQVR42u2cQY7DIAxF0VyA+9+SG2SUAvY3yWwq2ZrFQ10kKW9TPRnbkLbrizEaFBQUFBQUVBY1mo37uq/n932/1kObcM//ad8MKKg/R3B46tfj9WjHBDyEyvJwrGBoHt6R8COhqWgT8BCqwMO5Iq+HFhvxEKrSw+2eZoZ4CFWdH24V51fkh1CVHmq9/PqhXoZK9zCOWaG4li/dHn5DqBQP/b57ZuhZ4nWFFRwPofLqlF0aTxutag6xEQ+h8uOhVygPM/0WD6Ey46Ht8fmOXhdFd+qIh1CJ9bIoZ/1DW6N9b4V6GSq5b6MR7+V4gzQV8RAqq28Tk0Dv2FjV3OnbQOXnh3LK6+wfDl+7yQ+hKuqU8RIGWwuNRDyESq1Tgm9WocQWIvkhVHo8PM45dEkLtUjBQ6hkD/UE7GrgRDPZT4GqqFP0qGE88ODf4iFUXt9G35xSFVuol/EQKrdO0YinXUR5R4D+IVTBunxsND9PfBEPoQrqlBbfQ1l1yjNa4iFUjYdSL+sF6zJUpYfHnrLOZF8Pqi4/3HvNz38gwUOoonpZDr4eWyqiK78hVIKH/OsUFBQUFBTUv6B+AcqyXXtfG04nAAAAAElFTkSuQmCC"
+             download="suzuki-line-qr.png">画像をダウンロード</a>
+        </div>
+      </details>
 
-    <a class="btn" href="mailto:ysuzuki.soc@gmail.com">
-      <span class="ico" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2.5" y="4.5" width="19" height="15" rx="2"/>
-          <path d="m3 6.5 9 6 9-6"/>
-        </svg>
-      </span>
-      <span class="txt">
-        <b>メールを送る</b>
-        <span>ysuzuki.soc@gmail.com</span>
-      </span>
-      <span class="arw" aria-hidden="true">›</span>
-    </a>
+      <a class="btn" href="tel:08016107648">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1z"/>
+          </svg>
+        </span>
+        <span class="txt">
+          <b>電話をかける</b>
+          <span>080-1610-7648</span>
+        </span>
+        <span class="arw" aria-hidden="true">›</span>
+      </a>
 
-  </nav>
+      <a class="btn" href="mailto:ysuzuki.soc@gmail.com">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="4.5" width="19" height="15" rx="2"/>
+            <path d="m3 6.5 9 6 9-6"/>
+          </svg>
+        </span>
+        <span class="txt">
+          <b>メールを送る</b>
+          <span>ysuzuki.soc@gmail.com</span>
+        </span>
+        <span class="arw" aria-hidden="true">›</span>
+      </a>
 
-  <p class="foot">YUTA SUZUKI, M.D.</p>
+    </nav>
 
-</main>
+    <p class="foot">YUTA SUZUKI, M.D.</p>
+
+  </main>
+</div>
 </body>
 </html>
